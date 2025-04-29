@@ -1,0 +1,63 @@
+---
+title: 'Reference'
+description: 'Manage your analysis.'
+icon: 'book-open-cover'
+---
+
+## <Icon icon="folder-tree" type="solid"/>  Structure
+
+A new conversational analysis is made by the following structure:
+
+```json
+{
+  "identify": false,
+  "options": [
+    "Social Contract"
+  ],
+  "docsURL": "https://i.imgur.com/C0U8VWS_d.webp?maxwidth=760&fidelity=grand",
+  "docsMimeType": "image/jpg",
+  "docsId": "1234"
+} 
+```
+
+## Metadata
+
+* `identify` : <u> string </u> <br /> Defines whether the API should automatically identify the document type. It could be "true" or "false". (Required)
+
+* `options` : <u> array </u> <br /> List of document types to be analyzed. (Optional)
+
+<Tip title="Clientes são únicos por CPF/CNPJ" icon="book" horizontal>
+    Options will only be required if identify is "false".
+</Tip>
+
+* `docsURL` : <u> string </u> <br /> URL of the document to be analyzed. (Required)
+
+* `docsMimeType` : <u> string </u> <br /> Document MIME type (e.g., "image/jpg", "application/pdf"). (Required)
+
+* `docsId` : <u> string </u> <br /> Unique document identifier, can be the file name or a client-defined ID. (Required)
+
+## Example structures
+
+When identify for "true":
+
+```json
+{
+  "identify": "true",
+  "docsURL": "https://i.imgur.com/C0U8VWS_d.webp?maxwidth=760&fidelity=grand",
+  "docsMimeType": "image/jpg",
+  "docsId": "1234"
+} 
+```
+
+When identify for "false":
+
+```json
+{
+  "identify": "false",
+  "options": ["Social Contract"],
+  "docsURL": "https://i.imgur.com/C0U8VWS_d.webp?maxwidth=760&fidelity=grand",
+  "docsMimeType": "image/jpg",
+  "docsId": "1234"
+} 
+```
+
